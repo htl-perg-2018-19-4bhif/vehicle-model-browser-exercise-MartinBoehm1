@@ -1,0 +1,7 @@
+<h1>Details about {{ pokemonName }}</h1>
+<a><img [src]= "imgLink" width="82" height="86" title="Chosen Pokemon" alt="Pokemon"></a>
+<ul>
+  <li *ngFor="let ability of abilities">
+    <a>{{ ability.id }} {{ ability.name }} </a>
+  </li>
+</ul>

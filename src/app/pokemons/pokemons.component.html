@@ -1,0 +1,6 @@
+<input (keyup)="onKey($event)">
+<ul>
+  <li *ngFor="let pokemon of pokemons">
+    <a [routerLink]="pokemon.id">{{ pokemon.id }} {{ pokemon.name }} </a>
+  </li>
+</ul>
