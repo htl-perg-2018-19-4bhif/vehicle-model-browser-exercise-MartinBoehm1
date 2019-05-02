@@ -1,91 +1,31 @@
-# Vehicle Model Database Browser
+# Angular Router
 
 ## Introduction
 
-In this exercise, you have to build an Angular frontend for a database with data about vehicle models. The user should be able to look for vehicle models based on manufacturing year and make (e.g. BMW, Tesla, Volkswagen), and view vehicle model details.
+We already worked on [examples using the PokeAPI](https://github.com/rstropek/htl-mobile-computing/tree/master/rest-fundamentals/9040-pokelist) in this year, can you remember? This time we are going to use this public Web API again.
 
-## Data Access
-
-I have written and deployed a RESTful Web API to *https://vehicle-data.azurewebsites.net* that will serve as the backend for your Angular app. Here are some sample requests that you will need to solve the exercise:
-
-```txt
-@host = https://vehicle-data.azurewebsites.net
-
-###
-# Get a list of all years for which the database contains data
-GET {{host}}/api/years HTTP/1.1
-
-###
-# Get a list of all makes for which the database contains data
-GET {{host}}/api/makes HTTP/1.1
-
-###
-# Get a filtered list of makes (all makes that contain "To")
-GET {{host}}/api/makes?make=To HTTP/1.1
-
-###
-# Get a list of all models
-# Note that the result is by default limited to the first 10 result rows
-GET {{host}}/api/models HTTP/1.1
-
-###
-# Get a list of all models
-# Note that you can use "offset" (skip first n rows) and "fetch"
-# (take n rows) to implement paging
-GET {{host}}/api/models?offset=3&fetch=3 HTTP/1.1
-
-###
-# Get a filtered list of models
-# Note that you can combine filtering with paging
-GET {{host}}/api/models?make=audi&year=2012&offset=10 HTTP/1.1
-
-###
-# Get a list of all fuel types (e.g. electricity, diesel)
-GET {{host}}/api/fuelTypes HTTP/1.1
-
-###
-# Get details about a specific model based on its ID
-GET {{host}}/api/models/6930 HTTP/1.1
-```
+You have to create an Angular 7 app that uses the Angular router. **Note** that it is highly recommended to complete this homework because it is similar to the example in the upcoming exam.
 
 ## Requirements
 
-1. Create a new Angular application using the Angular CLI
+* Create a new Angular application including the [Angular Router](https://rstropek.github.io/htl-mobile-computing/#/12/19).
 
-1. Use the Angular router to implement two routes (details see below):
-    * */about*: Contains data with a general description of the app
-    * */models*: Contains a page on which the user can browse the vehicle models
+* Display a list of all Pokemon names under the URL *http://yourserver/pokemons*. Every Pokemon name should be a hyperlink to a site with details about the Pokemon (see requirement regarding *Pokemon details* below).
 
-1. Your app has to contain a menu with links to all routes mentioned above
+* The user must be able to enter a part of a Pokemon name (e.g. *charm*) to filter the Pokemon list. If the user does not enter a filter string, display the entire list of Pokemons. ***Note** that it is not enough to just process the first 20 Pokemons from the PokeAPI, you have to process all Pokemons.
 
-1. *About* page:
-    * Use the NPM package *lorem-ipsum* to generate five paragraphs of dummy text *at runtime* (i.e. call *lorem-ipsum* in the Angular component)
+* If the user does not enter any path in the URL (i.e. just *http://yourserver/*), redirect the user to the list of Pokemons (i.e. *http://yourserver/pokemons*).
 
-1. *Models* page:
-    * Add a filter area with two comboboxes boxes in which the user can select a year and a make that should be used to filter the result list. Use the RESTful Web API described above to get a list of years and a list of makes for populating the comboboxes.
-    * Add a *refresh* button with which the user can refresh the result list.
-    * Display a table with vehicle models filtered based on the user's filter settings (see requirement above). The table has to contain year, make, and model. The list should be limited to the first 10 result models.
+* Pokemon details must be reachable at *http://yourserver/pokemons/1* (where *1* is the ID of the Pokemon).
 
-1. Make the filters optional. That means that the user *can* filter based on year and make but she doesn't need to.
-    * She can filter only by year,
-    * only by make,
-    * by year and make,
-    * or retrieve a completely unfiltered list.
+* Display the *name of the pokemon* and its *ability names* on the details page.
 
-## Extra Points
+## Technical Requirements
 
-You can earn up to two extra points for this homework. For extra points, you have to solve the following two requirements and send me a link to your solution that I can try over the Internet.
+* Use Angular 7
 
-1. Add two Buttons *Next Page* and *Previous Page* to your *Models* page. The user must be able to page through the results. Add logic so that the paging buttons are properly enabled/disabled
-    * *Previous Page* disabled on first page
-    * *Next Page* disabled if there are not further result items
+* You can use Stackblitz or a locally created Angular solution. **Note** that a locally created Angular solution is recommended in order to prepare for the upcoming exam.
 
-1. Style the application with a CSS/component framework like *Angular Material*. Optionally, use *Flex Layout* to arrange the HTML elements (e.g. filter settings, refresh button, and result table on *Models* page)
+## Extra Point
 
-## Challenge
-
-Do you want to have extra challenges?
-
-1. Change the filter area so that the user just has a filter text input. Let the user enter his search in text. *2012* would search for models from 2012. *Audi* would search for the make Audi. *2012 Audi* or *Audi 2012* would combine both filters.
-
-1. Remove the *refresh* button and start the search automatically whenever the user has not changed the filter for 300ms. Try to solve this challenge with RxJS and Observables and try to avoid manually calling *setTimeout* or similar JavaScript functions.
+Send me a link to the working application deployed on the internet via a GitHub issue to earn an extra point for your grade.

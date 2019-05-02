@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <ul>
-      <li><a routerLink="pokemons">Pokemons</a></li>
+      <li><a routerLink="about">About</a></li>
+      <li><a routerLink="models">Models</a></li>
     </ul>
     <router-outlet></router-outlet>
   `,
