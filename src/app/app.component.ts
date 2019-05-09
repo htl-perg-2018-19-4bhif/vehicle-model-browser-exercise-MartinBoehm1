@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <ul>
       <li><a routerLink="about">About</a></li>
-      <li><a routerLink="models">Models</a></li>
+      <li><a routerLink="models">models</a></li>
     </ul>
     <router-outlet></router-outlet>
   `,

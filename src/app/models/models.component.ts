@@ -14,7 +14,7 @@ interface ICar {
   templateUrl: './models.component.html',
   styleUrls: ['./models.component.css']
 })
-export class ModelsComponent implements OnInit {
+export class modelsComponent implements OnInit {
 
 
   public chosenMake:string="";
@@ -36,7 +36,7 @@ export class ModelsComponent implements OnInit {
     this.makes=await this.http.get<string[]>('https://vehicle-data.azurewebsites.net/api/makes').toPromise();
     this.years=await this.http.get<number[]>('https://vehicle-data.azurewebsites.net/api/years').toPromise();
   }
-  async getModels(){
+  async getmodels(){
     this.page=0;
     this.makeToSearch=this.chosenMake;
     this.yearToSearch=this.chosenYear;
