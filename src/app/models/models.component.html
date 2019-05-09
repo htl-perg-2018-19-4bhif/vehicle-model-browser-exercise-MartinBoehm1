@@ -12,21 +12,24 @@
   </option>
 </select>
 <br>
-<button type="button" (click)="getmodels()">get models</button>
-
-<ul>
-  <li *ngFor="let model of models">
-      {{ model.id}}
+<button type="button" (click)="getModels()">get Models</button>
+<table style="width:100%">
+  <th>id</th>
+  <th>year</th>
+  <th>make</th>
+  <th>model</th>
+    <tr *ngFor="let model of models">
+      <td>{{ model.id}}</td>
 
       <!--<div *ngIf="todo.assignedTo==null">
         <select ng-options="person.name for person in people">
         </select>
       </div>-->
-      {{ model.year }}
-      {{ model.make }}
-      {{ model.model }}
-  </li>
-</ul>
+      <td>{{ model.year }}</td>
+      <td>{{ model.make }}</td>
+      <td>{{ model.model }}</td>
+    </tr>
+</table>
 <div *ngIf="(page!==0)">
   <button type="button" (click)="previous()">Previous</button>
 </div>

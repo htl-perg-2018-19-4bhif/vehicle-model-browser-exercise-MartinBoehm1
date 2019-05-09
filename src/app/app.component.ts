@@ -3,10 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <ul>
-      <li><a routerLink="about">About</a></li>
-      <li><a routerLink="models">models</a></li>
-    </ul>
+  <button routerLink="about">About</button>
+      <button routerLink="models">Models</button><br><br>
     <router-outlet></router-outlet>
   `,
   styles: [],
